@@ -3,402 +3,320 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Chúc Mừng Tốt Nghiệp</title>
-    <style>
-      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap");
-
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-
-      body {
-        font-family: "Poppins", sans-serif;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        min-height: 100vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        overflow-x: hidden;
-      }
-
-      .celebration-container {
-        background: rgba(255, 255, 255, 0.95);
-        backdrop-filter: blur(20px);
-        border-radius: 20px;
-        padding: 40px;
-        max-width: 800px;
-        width: 90%;
-        text-align: center;
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-        position: relative;
-        overflow: hidden;
-      }
-
-      .celebration-container::before {
-        content: "";
-        position: absolute;
-        top: -50%;
-        left: -50%;
-        width: 200%;
-        height: 200%;
-        background: linear-gradient(
-          45deg,
-          transparent,
-          rgba(255, 215, 0, 0.1),
-          transparent
-        );
-        animation: shine 3s infinite;
-      }
-
-      @keyframes shine {
-        0% {
-          transform: translateX(-100%) translateY(-100%) rotate(45deg);
-        }
-        100% {
-          transform: translateX(100%) translateY(100%) rotate(45deg);
-        }
-      }
-
-      .photo-container {
-        width: 150px;
-        height: 150px;
-        margin: 0 auto 30px;
-        border-radius: 50%;
-        overflow: hidden;
-        border: 5px solid #ffd700;
-        box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
-        animation: photoFloat 3s ease-in-out infinite;
-        position: relative;
-      }
-
-      @keyframes photoFloat {
-        0%,
-        100% {
-          transform: translateY(0px);
-        }
-        50% {
-          transform: translateY(-10px);
-        }
-      }
-
-      .photo-placeholder {
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(135deg, #ffd700, #ffed4e);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: #8b4513;
-        font-size: 60px;
-        font-weight: bold;
-      }
-
-      .graduation-cap {
-        position: absolute;
-        top: -20px;
-        right: -20px;
-        font-size: 40px;
-        animation: capBounce 2s ease-in-out infinite;
-      }
-
-      @keyframes capBounce {
-        0%,
-        100% {
-          transform: rotate(-15deg) scale(1);
-        }
-        50% {
-          transform: rotate(-10deg) scale(1.1);
-        }
-      }
-
-      .main-title {
-        font-size: 2.5rem;
-        font-weight: 700;
-        background: linear-gradient(135deg, #667eea, #764ba2);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-        margin-bottom: 20px;
-        animation: titleSlide 1s ease-out;
-      }
-
-      @keyframes titleSlide {
-        from {
-          opacity: 0;
-          transform: translateY(-30px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      .name {
-        font-size: 2rem;
-        font-weight: 600;
-        color: #2c3e50;
-        margin-bottom: 30px;
-        animation: nameGlow 2s ease-in-out infinite alternate;
-      }
-
-      @keyframes nameGlow {
-        from {
-          text-shadow: 0 0 10px rgba(102, 126, 234, 0.3);
-        }
-        to {
-          text-shadow: 0 0 20px rgba(102, 126, 234, 0.6);
-        }
-      }
-
-      .achievement-card {
-        background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-        border-radius: 15px;
-        padding: 25px;
-        margin: 20px 0;
-        color: white;
-        animation: cardPulse 3s ease-in-out infinite;
-      }
-
-      @keyframes cardPulse {
-        0%,
-        100% {
-          transform: scale(1);
-        }
-        50% {
-          transform: scale(1.02);
-        }
-      }
-
-      .achievement-title {
-        font-size: 1.3rem;
-        font-weight: 600;
-        margin-bottom: 10px;
-      }
-
-      .achievement-desc {
-        font-size: 1rem;
-        opacity: 0.9;
-      }
-
-      .celebration-message {
-        font-size: 1.1rem;
-        color: #34495e;
-        line-height: 1.6;
-        margin: 25px 0;
-        animation: messageFloat 4s ease-in-out infinite;
-      }
-
-      @keyframes messageFloat {
-        0%,
-        100% {
-          transform: translateY(0px);
-        }
-        25% {
-          transform: translateY(-5px);
-        }
-        75% {
-          transform: translateY(5px);
-        }
-      }
-
-      .from-section {
-        margin-top: 30px;
-        padding-top: 20px;
-        border-top: 2px solid #e8e8e8;
-        font-style: italic;
-        color: #7f8c8d;
-      }
-
-      .confetti {
-        position: absolute;
-        width: 10px;
-        height: 10px;
-        background: #ffd700;
-        animation: confettiFall 3s linear infinite;
-      }
-
-      @keyframes confettiFall {
-        0% {
-          transform: translateY(-100px) rotate(0deg);
-          opacity: 1;
-        }
-        100% {
-          transform: translateY(100vh) rotate(360deg);
-          opacity: 0;
-        }
-      }
-
-      .star {
-        position: absolute;
-        color: #ffd700;
-        font-size: 20px;
-        animation: starTwinkle 2s ease-in-out infinite;
-      }
-
-      @keyframes starTwinkle {
-        0%,
-        100% {
-          opacity: 0.3;
-          transform: scale(1);
-        }
-        50% {
-          opacity: 1;
-          transform: scale(1.2);
-        }
-      }
-    </style>
+    <title>Thiệp Chúc Mừng Tốt Nghiệp</title>
+    <link rel="stylesheet" href="spring.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
   </head>
   <body>
-    <div class="celebration-container">
-      <!-- Confetti elements -->
-      <div class="confetti" style="left: 10%; animation-delay: 0s"></div>
+    <!-- Floating confetti -->
+    <div class="floating-confetti" aria-hidden="true">
       <div
         class="confetti"
-        style="left: 20%; animation-delay: 0.5s; background: #ff6b6b"
+        style="left: 10%; animation-delay: 0s; background: #fd79a8"
       ></div>
       <div
         class="confetti"
-        style="left: 30%; animation-delay: 1s; background: #4ecdc4"
+        style="left: 25%; animation-delay: 1s; background: #fdcb6e"
       ></div>
       <div
         class="confetti"
-        style="left: 40%; animation-delay: 1.5s; background: #45b7d1"
+        style="left: 40%; animation-delay: 2s; background: #00cec9"
       ></div>
       <div
         class="confetti"
-        style="left: 50%; animation-delay: 2s; background: #96ceb4"
+        style="left: 55%; animation-delay: 0.5s; background: #74b9ff"
       ></div>
       <div
         class="confetti"
-        style="left: 60%; animation-delay: 0.3s; background: #feca57"
+        style="left: 70%; animation-delay: 1.5s; background: #a29bfe"
       ></div>
       <div
         class="confetti"
-        style="left: 70%; animation-delay: 0.8s; background: #ff9ff3"
+        style="left: 85%; animation-delay: 2.5s; background: #ff7675"
       ></div>
-      <div
-        class="confetti"
-        style="left: 80%; animation-delay: 1.3s; background: #54a0ff"
-      ></div>
-      <div
-        class="confetti"
-        style="left: 90%; animation-delay: 1.8s; background: #5f27cd"
-      ></div>
-
-      <!-- Twinkling stars -->
-      <div class="star" style="top: 20px; left: 50px; animation-delay: 0s">
-        ✨
-      </div>
-      <div class="star" style="top: 80px; right: 30px; animation-delay: 1s">
-        ⭐
-      </div>
-      <div
-        class="star"
-        style="bottom: 100px; left: 30px; animation-delay: 0.5s"
-      >
-        ✨
-      </div>
-      <div
-        class="star"
-        style="bottom: 50px; right: 80px; animation-delay: 1.5s"
-      >
-        ⭐
-      </div>
-
-      <div class="photo-container">
-        <div class="photo-placeholder">
-          <img
-            src="./Snapinsta.app_462482049_519540807550904_3982950570698673804_n_1080.jpg"
-            alt="Ảnh Tốt Nghiệp"
-            style="width: 100%; height: 100%; object-fit: cover"
-          />
-        </div>
-        <div class="graduation-cap">🎓</div>
-      </div>
-
-      <h1 class="main-title">🎉 CHÚC MỪNG TỐT NGHIỆP! 🎉</h1>
-
-      <div class="name">NGUYỄN MINH THƯ</div>
-
-      <div class="achievement-card">
-        <div class="achievement-title">🌟 Thành Tựu Xuất Sắc 🌟</div>
-        <div class="achievement-desc">
-          Hoàn thành xuất sắc chương trình học<br />
-          Sẵn sàng bước vào hành trình mới
-        </div>
-      </div>
-
-      <div class="celebration-message">
-        🚀 <strong>Chúc bạn luôn tỏa sáng</strong> trên con đường phía trước!<br />
-        💫 Thành công sẽ đến với những ai <strong>kiên trì và nỗ lực</strong
-        ><br />
-        🌈 Hãy tiếp tục <strong>theo đuổi ước mơ</strong> và chinh phục mọi thử
-        thách!
-      </div>
-
-      <div class="from-section">
-        💌 Gửi tặng với tình cảm từ: <strong>[Tên người gửi]</strong>
-      </div>
     </div>
 
-    <script>
-      // Tạo hiệu ứng confetti động
-      function createConfetti() {
-        const colors = [
-          "#ffd700",
-          "#ff6b6b",
-          "#4ecdc4",
-          "#45b7d1",
-          "#96ceb4",
-          "#feca57",
-          "#ff9ff3",
-          "#54a0ff",
-        ];
+    <!-- Password Screen -->
+    <div
+      id="overlay"
+      class="password-overlay"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="password-title"
+    >
+      <form
+        class="password-box"
+        onsubmit="unlock(); return false;"
+        autocomplete="off"
+      >
+        <h2 id="password-title">🔐 Nhập mật khẩu</h2>
+        <label for="passInput" class="visually-hidden">Mật khẩu</label>
+        <input
+          type="password"
+          id="passInput"
+          placeholder="Nhập mật khẩu..."
+          autocomplete="off"
+          required
+          aria-required="true"
+        />
+        <br />
+        <button type="submit">✨ Mở thiệp ✨</button>
+      </form>
+    </div>
 
+    <!-- Main Content -->
+    <main id="content" style="display: none" tabindex="-1">
+      <div id="captureArea">
+        <section
+          class="graduation-card"
+          aria-label="Thiệp chúc mừng tốt nghiệp"
+        >
+          <!-- Left side - Photo -->
+          <div class="photo-section">
+            <div class="decorative-elements" aria-hidden="true">
+              <div
+                class="star-left"
+                style="top: 15%; left: 10%; animation-delay: 0s"
+              >
+                ✨
+              </div>
+              <div
+                class="star-left"
+                style="top: 25%; right: 15%; animation-delay: 1s"
+              >
+                ⭐
+              </div>
+              <div
+                class="star-left"
+                style="bottom: 20%; left: 15%; animation-delay: 0.5s"
+              >
+                ✨
+              </div>
+              <div
+                class="star-left"
+                style="bottom: 35%; right: 10%; animation-delay: 1.5s"
+              >
+                🌟
+              </div>
+            </div>
+            <div class="graduation-cap-left" aria-hidden="true">🎓</div>
+            <div class="photo-container">
+              <img
+                src="./Pics/ngoc.png"
+                alt="Ảnh tốt nghiệp của Quyên"
+                class="graduate-photo"
+                loading="lazy"
+              />
+            </div>
+          </div>
+
+          <!-- Right side - Letter -->
+          <section class="letter-section">
+            <header class="letter-header">
+              <h1 class="main-title">🎉 Chúc Mừng Tốt Nghiệp 🎉</h1>
+              <div class="graduate-name">
+                <strong>Nguyễn Thị Hoàng Quyên</strong><br />
+              </div>
+            </header>
+            <article class="letter-content">
+              <div class="achievement-badge">🎓 Tốt Nghiệp – Khởi Đầu Mới</div>
+              <div class="congratulation-message">
+                <strong>😎 Chị ơi, tốt nghiệp rồi đó hở?!</strong><br /><br />
+                Hành trình đu đưa deadline, đắm chìm trong giáo án, và sống sót
+                qua mùa thi cuối cùng cũng kết thúc rồi. Giờ là lúc chị chính
+                thức bước vào hành trình… chạy deadline kiểu mới! 😅<br /><br />
+                <strong>🌟 Nhưng đừng lo</strong> – với độ “xịn sò” và thần thái
+                có sẵn, em tin chị sẽ cân hết mọi thử thách phía trước.<br /><br />
+                P/S: Chúc chị thành công trên con đường sắp tới 🤭<br /><br />
+                <strong>🎉 Tự hào về chị 🫂🤌!</strong>
+              </div>
+
+              <footer class="signature">
+                💌 Gửi lời chúc tốt đẹp nhất,<br />
+                <strong>Ly Hồ</strong> ✨
+              </footer>
+            </article>
+          </section>
+        </section>
+      </div>
+      <div
+        class="action-buttons"
+        style="
+          margin-top: 25px;
+          display: flex;
+          justify-content: center;
+          gap: 20px;
+        "
+      >
+        <button
+          id="downloadImageBtn"
+          class="download-btn"
+          title="Tải ảnh thiệp"
+        >
+          📸
+        </button>
+        <button id="shareBtn" class="download-btn" title="Chia sẻ liên kết">
+          🔗
+        </button>
+      </div>
+    </main>
+
+    <script>
+      function unlock() {
+        const input = document.getElementById("passInput").value;
+        if (input === "nguyenthihoangquyen") {
+          document.getElementById("overlay").style.display = "none";
+          document.getElementById("content").style.display = "block";
+          document.getElementById("content").focus();
+          document.getElementById("content").style.display = "block";
+          document.querySelector(".graduation-card").classList.add("open-card");
+
+          createContinuousConfetti();
+        } else {
+          alert("🔐 Sai mật khẩu rồi! Hãy thử lại nhé 💡");
+        }
+      }
+
+      function createContinuousConfetti() {
+        const colors = [
+          "#fd79a8",
+          "#fdcb6e",
+          "#00cec9",
+          "#74b9ff",
+          "#a29bfe",
+          "#ff7675",
+          "#55efc4",
+        ];
         setInterval(() => {
           const confetti = document.createElement("div");
           confetti.className = "confetti";
+          confetti.style.position = "fixed";
           confetti.style.left = Math.random() * 100 + "%";
+          confetti.style.top = "-10px";
           confetti.style.backgroundColor =
             colors[Math.floor(Math.random() * colors.length)];
-          confetti.style.animationDelay = "0s";
-          confetti.style.animationDuration = Math.random() * 3 + 2 + "s";
-
+          confetti.style.pointerEvents = "none";
+          confetti.style.zIndex = "10";
+          confetti.style.animationDuration = Math.random() * 2 + 2 + "s";
           document.body.appendChild(confetti);
-
           setTimeout(() => {
-            confetti.remove();
-          }, 5000);
-        }, 300);
+            if (confetti.parentNode) {
+              confetti.parentNode.removeChild(confetti);
+            }
+          }, 4000);
+        }, 250);
       }
 
-      // Khởi tạo hiệu ứng khi trang load
-      window.addEventListener("load", () => {
-        createConfetti();
+      // High-quality image download function
+      document.getElementById("downloadImageBtn").onclick = async function () {
+        const btn = document.getElementById("downloadImageBtn");
 
-        // Thêm hiệu ứng click để tạo confetti
-        document.addEventListener("click", (e) => {
-          const colors = ["#ffd700", "#ff6b6b", "#4ecdc4", "#45b7d1"];
-          for (let i = 0; i < 5; i++) {
-            const confetti = document.createElement("div");
-            confetti.className = "confetti";
-            confetti.style.position = "fixed";
-            confetti.style.left = e.clientX + "px";
-            confetti.style.top = e.clientY + "px";
-            confetti.style.backgroundColor =
-              colors[Math.floor(Math.random() * colors.length)];
-            confetti.style.pointerEvents = "none";
+        // Disable button and show loading state
+        btn.disabled = true;
 
-            document.body.appendChild(confetti);
+        try {
+          const card = document.getElementById("captureArea");
 
-            setTimeout(() => {
-              confetti.remove();
-            }, 3000);
-          }
-        });
-      });
+          // Update progress - preparing
+
+          // Small delay to ensure all fonts and styles are loaded
+          await new Promise((resolve) => setTimeout(resolve, 300));
+
+          // Update progress - capturing
+
+          // Capture with high quality settings
+          const canvas = await html2canvas(card, {
+            backgroundColor: null, // Keep transparent background
+            useCORS: true,
+            allowTaint: false,
+            scale: 2, // Higher resolution - 2x scaling
+            logging: false,
+            width: card.offsetWidth,
+            height: card.offsetHeight,
+            windowWidth: document.body.scrollWidth,
+            windowHeight: document.body.scrollHeight,
+            removeContainer: false,
+            imageTimeout: 15000,
+            onclone: function (clonedDoc) {
+              // Ensure all styles are applied in the cloned document
+              const clonedCard = clonedDoc.querySelector(".graduation-card");
+              if (clonedCard) {
+                clonedCard.style.animation = "none";
+                // Stop all animations for better capture
+                const animatedElements = clonedDoc.querySelectorAll("*");
+                animatedElements.forEach((el) => {
+                  el.style.animation = "none";
+                  el.style.transition = "none";
+                });
+              }
+            },
+          });
+
+          // Convert to high-quality blob
+          canvas.toBlob(
+            function (blob) {
+              // Create download link
+              const url = URL.createObjectURL(blob);
+              const link = document.createElement("a");
+              link.href = url;
+              link.download = "thiep-chuc-mung-tot-nghiep.png";
+              document.body.appendChild(link);
+              link.click();
+              document.body.removeChild(link);
+              URL.revokeObjectURL(url);
+
+              // Reset button state
+              setTimeout(() => {
+                btn.disabled = false;
+                icon.textContent = "✅";
+                text.textContent = "Tải xong! Nhấn để tải lại";
+
+                setTimeout(() => {
+                  icon.textContent = "📸";
+                  text.textContent = "Tải Ảnh Thiệp";
+                }, 2500);
+              }, 500);
+            },
+            "image/png",
+            1.0
+          ); // Maximum quality PNG
+        } catch (error) {
+          console.error("Error creating image:", error);
+
+          // Reset button on error
+          btn.disabled = false;
+          icon.textContent = "❌";
+          text.textContent = "Lỗi! Thử lại";
+
+          setTimeout(() => {
+            icon.textContent = "📸";
+            text.textContent = "Tải Ảnh Thiệp";
+          }, 5000);
+
+          alert("Có lỗi xảy ra khi tạo ảnh. Vui lòng thử lại!");
+        }
+      };
+
+      document.getElementById("shareBtn").onclick = async function () {
+        try {
+          const url = window.location.href;
+          await navigator.clipboard.writeText(url);
+          const btn = document.getElementById("shareBtn");
+          const original = btn.textContent;
+          btn.textContent = "✅";
+          setTimeout(() => {
+            btn.textContent = original;
+          }, 1500);
+          alert("📎 Đã sao chép link! Bạn có thể chia sẻ ngay.");
+        } catch (err) {
+          alert("Không thể sao chép liên kết. Trình duyệt không hỗ trợ!");
+        }
+      };
+
+      // Auto-focus password input
+      window.onload = function () {
+        document.getElementById("passInput").focus();
+      };
     </script>
   </body>
 </html>

@@ -4,450 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Thiệp Chúc Mừng Tốt Nghiệp</title>
-    <style>
-      @import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap");
-
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-
-      body {
-        font-family: "Poppins", sans-serif;
-        background: linear-gradient(
-          135deg,
-          #ffeaa7 0%,
-          #fab1a0 30%,
-          #fd79a8 70%,
-          #e17055 100%
-        );
-        min-height: 100vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 20px;
-        position: relative;
-        overflow-x: hidden;
-        max-width: 1600px; /* Add this line for a wider body */
-        margin: 0 auto; /* Center the content */
-      }
-
-      /* Password overlay */
-      .password-overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(255, 255, 255, 0.9);
-        backdrop-filter: blur(10px);
-        z-index: 9999;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-
-      .password-box {
-        background: linear-gradient(135deg, #fff, #f8f9fa);
-        padding: 40px;
-        border-radius: 20px;
-        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-        text-align: center;
-        border: 2px solid #e9ecef;
-        max-width: 90vw;
-        width: 350px;
-      }
-
-      .password-box h2 {
-        color: #2d3436;
-        margin-bottom: 20px;
-        font-family: "Playfair Display", serif;
-      }
-
-      .password-box input {
-        padding: 15px;
-        width: 100%;
-        margin: 15px 0;
-        border-radius: 12px;
-        border: 2px solid #ddd;
-        font-size: 16px;
-        transition: all 0.3s ease;
-      }
-
-      .password-box input:focus {
-        outline: none;
-        border-color: #fd79a8;
-        box-shadow: 0 0 10px rgba(253, 121, 168, 0.3);
-      }
-
-      .password-box button {
-        padding: 15px 30px;
-        background: linear-gradient(135deg, #fd79a8, #e84393);
-        color: white;
-        border: none;
-        border-radius: 12px;
-        cursor: pointer;
-        font-size: 16px;
-        font-weight: 600;
-        transition: all 0.3s ease;
-      }
-
-      .password-box button:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 5px 15px rgba(253, 121, 168, 0.4);
-      }
-
-      /* Main card */
-      .graduation-card {
-        display: flex;
-        width: 90%;
-        max-width: 1400px; /* Increase from 1200px to 1400px or more */
-        height: 90%;
-        border-radius: 25px;
-        overflow: hidden;
-        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
-        animation: cardAppear 1s ease-out;
-        background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
-      }
-
-      @keyframes cardAppear {
-        from {
-          opacity: 0;
-          transform: scale(0.9) translateY(30px);
-        }
-        to {
-          opacity: 1;
-          transform: scale(1) translateY(0);
-        }
-      }
-
-      /* Left side - Photo */
-      .photo-section {
-        flex: 3.5;
-        width: 100%;
-        background: linear-gradient(135deg, #fd79a8 0%, #fdcb6e 100%);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        position: relative;
-        overflow: hidden;
-      }
-
-      .photo-section::before {
-        content: "";
-        position: absolute;
-        top: -50%;
-        left: -50%;
-        width: 200%;
-        height: 200%;
-        background: radial-gradient(
-          circle,
-          rgba(255, 255, 255, 0.2) 0%,
-          transparent 70%
-        );
-        animation: shimmer 4s ease-in-out infinite;
-      }
-
-      @keyframes shimmer {
-        0%,
-        100% {
-          transform: rotate(0deg);
-        }
-        50% {
-          transform: rotate(180deg);
-        }
-      }
-
-      .photo-container {
-        width: 90%;
-        height: 70%;
-        border-radius: 20px;
-        overflow: hidden;
-        border: 6px solid #ffffff;
-        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-        position: relative;
-        z-index: 2;
-        animation: photoFloat 4s ease-in-out infinite;
-      }
-
-      @keyframes photoFloat {
-        0%,
-        100% {
-          transform: translateY(0px) rotate(0deg);
-        }
-        25% {
-          transform: translateY(-8px) rotate(1deg);
-        }
-        50% {
-          transform: translateY(-5px) rotate(0deg);
-        }
-        75% {
-          transform: translateY(-8px) rotate(-1deg);
-        }
-      }
-
-      .photo-container img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: center;
-      }
-
-      .graduation-cap-left {
-        position: absolute;
-        top: 20px;
-        right: 20px;
-        font-size: 50px;
-        animation: capRotate 3s ease-in-out infinite;
-        z-index: 3;
-      }
-
-      @keyframes capRotate {
-        0%,
-        100% {
-          transform: rotate(-10deg);
-        }
-        50% {
-          transform: rotate(10deg);
-        }
-      }
-
-      .decorative-elements {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        pointer-events: none;
-      }
-
-      .star-left {
-        position: absolute;
-        color: rgba(255, 255, 255, 0.8);
-        font-size: 25px;
-        animation: starTwinkle 2.5s ease-in-out infinite;
-      }
-
-      /* Right side - Letter */
-      .letter-section {
-        flex: 6.5;
-        padding: 50px 40px;
-        background: linear-gradient(135deg, #ffffff 0%, #f1f2f6 100%);
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        position: relative;
-      }
-
-      .letter-section::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-image: radial-gradient(
-            circle at 20% 80%,
-            rgba(253, 121, 168, 0.1) 0%,
-            transparent 50%
-          ),
-          radial-gradient(
-            circle at 80% 20%,
-            rgba(116, 185, 255, 0.1) 0%,
-            transparent 50%
-          );
-        pointer-events: none;
-      }
-
-      .letter-header {
-        text-align: center;
-        margin-bottom: 30px;
-        position: relative;
-        z-index: 2;
-      }
-
-      .main-title {
-        font-size: clamp(1.2rem, 4vw, 3rem); /* Co giãn theo viewport */
-        font-weight: 700;
-        background: linear-gradient(135deg, #fd79a8, #e84393);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-        margin-bottom: 15px;
-        font-family: "Playfair Display", serif;
-        animation: titleGlow 3s ease-in-out infinite;
-        text-align: center;
-        white-space: nowrap; /* Không cho xuống dòng */
-        overflow: hidden; /* Ẩn phần tràn */
-        text-overflow: ellipsis; /* Hiện "..." nếu quá dài */
-        max-width: 100%; /* Không cho vượt quá phần chứa */
-      }
-
-      @keyframes titleGlow {
-        0%,
-        100% {
-          filter: drop-shadow(0 0 5px rgba(253, 121, 168, 0.3));
-        }
-        50% {
-          filter: drop-shadow(0 0 15px rgba(253, 121, 168, 0.6));
-        }
-      }
-
-      .graduate-name {
-        font-size: 1.8rem;
-        font-weight: 600;
-        color: #2d3436;
-        font-family: "Dancing Script", cursive;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-      }
-
-      .letter-content {
-        background: rgba(255, 255, 255, 0.7);
-        border-radius: 15px;
-        padding: 25px;
-        border-left: 5px solid #fd79a8;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-        position: relative;
-        z-index: 2;
-      }
-
-      .achievement-badge {
-        background: linear-gradient(135deg, #00cec9, #55efc4);
-        color: white;
-        padding: 15px 20px;
-        border-radius: 12px;
-        margin-bottom: 20px;
-        text-align: center;
-        font-weight: 600;
-        animation: badgePulse 4s ease-in-out infinite;
-      }
-
-      @keyframes badgePulse {
-        0%,
-        100% {
-          transform: scale(1);
-        }
-        50% {
-          transform: scale(1.05);
-        }
-      }
-
-      .congratulation-message {
-        font-size: 1rem;
-        line-height: 1.8;
-        color: #2d3436;
-        margin-bottom: 20px;
-        font-weight: 400;
-      }
-
-      .signature {
-        text-align: right;
-        font-style: italic;
-        color: #636e72;
-        font-family: "Dancing Script", cursive;
-        font-size: 1.1rem;
-        margin-top: 20px;
-        padding-top: 15px;
-        border-top: 2px dashed #ddd;
-      }
-
-      /* Floating elements */
-      .floating-confetti {
-        position: absolute;
-        pointer-events: none;
-        z-index: 1;
-      }
-
-      .confetti {
-        width: 8px;
-        height: 8px;
-        border-radius: 50%;
-        animation: confettiFall 4s linear infinite;
-      }
-
-      @keyframes confettiFall {
-        0% {
-          transform: translateY(-100px) rotate(0deg);
-          opacity: 1;
-        }
-        100% {
-          transform: translateY(calc(100vh + 100px)) rotate(360deg);
-          opacity: 0;
-        }
-      }
-
-      @keyframes starTwinkle {
-        0%,
-        100% {
-          opacity: 0.4;
-          transform: scale(1);
-        }
-        50% {
-          opacity: 1;
-          transform: scale(1.3);
-        }
-      }
-
-      /* Responsive */
-      @media (max-width: 768px) {
-        .graduation-card {
-          flex-direction: column;
-          height: auto;
-          max-width: 400px;
-        }
-
-        .photo-section {
-          height: 300px;
-        }
-
-        .photo-container {
-          width: 200px;
-          height: 250px;
-        }
-
-        .letter-section {
-          padding: 30px 25px;
-        }
-
-        .main-title {
-          font-size: clamp(1rem, 6vw, 2rem);
-        }
-
-        .graduate-name {
-          font-size: 1.4rem;
-        }
-      }
-
-      @media (max-width: 480px) {
-        .password-box {
-          padding: 20px;
-        }
-        .photo-section {
-          height: 180px;
-        }
-        .photo-container {
-          width: 120px;
-          height: 150px;
-        }
-        .letter-section {
-          padding: 15px 8px;
-        }
-      }
-
-      /* Accessibility: visually hidden label */
-      .visually-hidden {
-        position: absolute;
-        width: 1px;
-        height: 1px;
-        padding: 0;
-        margin: -1px;
-        overflow: hidden;
-        clip: rect(0, 0, 0, 0);
-        border: 0;
-      }
-    </style>
-    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gif.js.optimized/dist/gif.worker.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gif.js.optimized/dist/gif.js"></script>
+    <link rel="stylesheet" href="spring.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
   </head>
   <body>
     <!-- Floating confetti -->
@@ -491,7 +49,7 @@
         onsubmit="unlock(); return false;"
         autocomplete="off"
       >
-        <h2 id="password-title">🔐 Nhập mật khẩu để mở thiệp chúc mừng</h2>
+        <h2 id="password-title">🔐 Nhập mật khẩu</h2>
         <label for="passInput" class="visually-hidden">Mật khẩu</label>
         <input
           type="password"
@@ -508,85 +66,115 @@
 
     <!-- Main Content -->
     <main id="content" style="display: none" tabindex="-1">
-      <section class="graduation-card" aria-label="Thiệp chúc mừng tốt nghiệp">
-        <!-- Left side - Photo -->
-        <div class="photo-section">
-          <div class="decorative-elements" aria-hidden="true">
-            <div
-              class="star-left"
-              style="top: 15%; left: 10%; animation-delay: 0s"
-            >
-              ✨
+      <div id="captureArea">
+        <section
+          class="graduation-card"
+          aria-label="Thiệp chúc mừng tốt nghiệp"
+        >
+          <!-- Left side - Photo -->
+          <div class="photo-section">
+            <div class="decorative-elements" aria-hidden="true">
+              <div
+                class="star-left"
+                style="top: 15%; left: 10%; animation-delay: 0s"
+              >
+                ✨
+              </div>
+              <div
+                class="star-left"
+                style="top: 25%; right: 15%; animation-delay: 1s"
+              >
+                ⭐
+              </div>
+              <div
+                class="star-left"
+                style="bottom: 20%; left: 15%; animation-delay: 0.5s"
+              >
+                ✨
+              </div>
+              <div
+                class="star-left"
+                style="bottom: 35%; right: 10%; animation-delay: 1.5s"
+              >
+                🌟
+              </div>
             </div>
-            <div
-              class="star-left"
-              style="top: 25%; right: 15%; animation-delay: 1s"
-            >
-              ⭐
-            </div>
-            <div
-              class="star-left"
-              style="bottom: 20%; left: 15%; animation-delay: 0.5s"
-            >
-              ✨
-            </div>
-            <div
-              class="star-left"
-              style="bottom: 35%; right: 10%; animation-delay: 1.5s"
-            >
-              🌟
+            <div class="graduation-cap-left" aria-hidden="true">🎓</div>
+            <div class="photo-container">
+              <img
+                src="./Pics/ngoc.png"
+                alt="Ảnh tốt nghiệp của Ngọc"
+                class="graduate-photo"
+                loading="lazy"
+              />
             </div>
           </div>
-          <div class="graduation-cap-left" aria-hidden="true">🎓</div>
-          <div class="photo-container">
-            <img
-              src="./z5303291901899_474b3911f472857754cdf4972940ba0a.jpg"
-              alt="Ảnh tốt nghiệp của Nguyễn Minh Thư"
-            />
-          </div>
-        </div>
 
-        <!-- Right side - Letter -->
-        <section class="letter-section">
-          <header class="letter-header">
-            <h1 class="main-title">🎉 Chúc Mừng Tốt Nghiệp 🎉</h1>
-            <div class="graduate-name">Nguyễn Minh Thư</div>
-          </header>
-          <article class="letter-content">
-            <div class="achievement-badge">🌸 Thành Tựu Rực Rỡ Mùa Xuân 🌸</div>
-            <div class="congratulation-message">
-              <strong>💐 Thân gửi em yêu,</strong><br /><br />
-              Chúc mừng em đã hoàn thành xuất sắc chặng đường học tập! Mỗi bước
-              chân em đi qua đều là minh chứng cho sự kiên trì và nỗ lực không
-              ngừng nghỉ.<br /><br />
-              <strong>🌈 Hãy tự hào về bản thân</strong> - em đã vượt qua mọi
-              thử thách và giờ đây đã sẵn sàng bay cao trên đôi cánh ước mơ của
-              chính mình.<br /><br />
-              <strong>🚀 Chúc em luôn tỏa sáng</strong> và chinh phục mọi đỉnh
-              cao trong tương lai!
-            </div>
-            <footer class="signature">
-              💌 Gửi với trọn tình yêu thương,<br />
-              <strong>[Tên người gửi]</strong> ✨
-            </footer>
-          </article>
-          <button
-            id="downloadGifBtn"
-            style="margin-top: 20px; align-self: flex-end"
-          >
-            📥 Download GIF
-          </button>
+          <!-- Right side - Letter -->
+          <section class="letter-section">
+            <header class="letter-header">
+              <h1 class="main-title">🎉 Chúc Mừng Tốt Nghiệp 🎉</h1>
+              <div class="graduate-name">
+                <strong>Hồ Thị Ánh Ngọc</strong><br />
+              </div>
+            </header>
+            <article class="letter-content">
+              <div class="achievement-badge">🎓 Tốt Nghiệp – Khởi Đầu Mới</div>
+              <div class="congratulation-message">
+                <strong>🎓 Gửi chị thân mến,</strong><br /><br />
+                Vậy là hành trình học tập của chị đã khép lại với biết bao nỗ
+                lực và kỷ niệm đáng nhớ. Em thực sự ngưỡng mộ sự kiên trì và cố
+                gắng không ngừng nghỉ của chị suốt thời gian qua. 💫<br /><br />
+                Mong rằng những kiến thức, những trải nghiệm (và cả những pha
+                “ảnh dìm” huyền thoại 😌) sẽ luôn là hành trang quý giá cho chị
+                bước tiếp thật tự tin và vững vàng.<br /><br />
+                <strong>🌷 Em tin tương lai của chị</strong> sẽ rực rỡ và tràn
+                ngập niềm vui, thành công cùng những điều bất ngờ thú vị đang
+                chờ phía trước.<br /><br />
+                <strong>💖 Chúc chị luôn giữ vững bản lĩnh</strong>, tin vào
+                chính mình và sống trọn từng khoảnh khắc trên hành trình mới!
+              </div>
+
+              <footer class="signature">
+                💌 Gửi lời chúc tốt đẹp nhất,<br />
+                <strong>Ly Hồ</strong> ✨
+              </footer>
+            </article>
+          </section>
         </section>
-      </section>
+      </div>
+      <div
+        class="action-buttons"
+        style="
+          margin-top: 25px;
+          display: flex;
+          justify-content: center;
+          gap: 20px;
+        "
+      >
+        <button
+          id="downloadImageBtn"
+          class="download-btn"
+          title="Tải ảnh thiệp"
+        >
+          📸
+        </button>
+        <button id="shareBtn" class="download-btn" title="Chia sẻ liên kết">
+          🔗
+        </button>
+      </div>
     </main>
 
     <script>
       function unlock() {
         const input = document.getElementById("passInput").value;
-        if (input === "thu2025") {
+        if (input === "hothianhngoc") {
           document.getElementById("overlay").style.display = "none";
           document.getElementById("content").style.display = "block";
           document.getElementById("content").focus();
+          document.getElementById("content").style.display = "block";
+          document.querySelector(".graduation-card").classList.add("open-card");
+
           createContinuousConfetti();
         } else {
           alert("🔐 Sai mật khẩu rồi! Hãy thử lại nhé 💡");
@@ -623,42 +211,113 @@
         }, 250);
       }
 
-      document.getElementById("downloadGifBtn").onclick = async function () {
-        const card = document.querySelector(".graduation-card");
-        const gif = new GIF({
-          workers: 2,
-          quality: 10,
-          width: card.offsetWidth,
-          height: card.offsetHeight,
-          workerScript:
-            "https://cdn.jsdelivr.net/npm/gif.js.optimized/dist/gif.worker.js", // 👈 dòng cần thêm
-        });
+      // High-quality image download function
+      document.getElementById("downloadImageBtn").onclick = async function () {
+        const btn = document.getElementById("downloadImageBtn");
 
-        for (let i = 0; i < 10; i++) {
-          await new Promise((r) => setTimeout(r, 200));
-          await html2canvas(card, {
-            backgroundColor: null,
-            useCORS: true, // 👈 dòng cần thêm
-          }).then((canvas) => {
-            gif.addFrame(canvas, { delay: 200 });
+        // Disable button and show loading state
+        btn.disabled = true;
+
+        try {
+          const card = document.getElementById("captureArea");
+
+          // Update progress - preparing
+
+          // Small delay to ensure all fonts and styles are loaded
+          await new Promise((resolve) => setTimeout(resolve, 300));
+
+          // Update progress - capturing
+
+          // Capture with high quality settings
+          const canvas = await html2canvas(card, {
+            backgroundColor: null, // Keep transparent background
+            useCORS: true,
+            allowTaint: false,
+            scale: 2, // Higher resolution - 2x scaling
+            logging: false,
+            width: card.offsetWidth,
+            height: card.offsetHeight,
+            windowWidth: document.body.scrollWidth,
+            windowHeight: document.body.scrollHeight,
+            removeContainer: false,
+            imageTimeout: 15000,
+            onclone: function (clonedDoc) {
+              // Ensure all styles are applied in the cloned document
+              const clonedCard = clonedDoc.querySelector(".graduation-card");
+              if (clonedCard) {
+                clonedCard.style.animation = "none";
+                // Stop all animations for better capture
+                const animatedElements = clonedDoc.querySelectorAll("*");
+                animatedElements.forEach((el) => {
+                  el.style.animation = "none";
+                  el.style.transition = "none";
+                });
+              }
+            },
           });
+
+          // Convert to high-quality blob
+          canvas.toBlob(
+            function (blob) {
+              // Create download link
+              const url = URL.createObjectURL(blob);
+              const link = document.createElement("a");
+              link.href = url;
+              link.download = "thiep-chuc-mung-tot-nghiep.png";
+              document.body.appendChild(link);
+              link.click();
+              document.body.removeChild(link);
+              URL.revokeObjectURL(url);
+
+              // Reset button state
+              setTimeout(() => {
+                btn.disabled = false;
+                icon.textContent = "✅";
+                text.textContent = "Tải xong! Nhấn để tải lại";
+
+                setTimeout(() => {
+                  icon.textContent = "📸";
+                  text.textContent = "Tải Ảnh Thiệp";
+                }, 2500);
+              }, 500);
+            },
+            "image/png",
+            1.0
+          ); // Maximum quality PNG
+        } catch (error) {
+          console.error("Error creating image:", error);
+
+          // Reset button on error
+          btn.disabled = false;
+          icon.textContent = "❌";
+          text.textContent = "Lỗi! Thử lại";
+
+          setTimeout(() => {
+            icon.textContent = "📸";
+            text.textContent = "Tải Ảnh Thiệp";
+          }, 5000);
+
+          alert("Có lỗi xảy ra khi tạo ảnh. Vui lòng thử lại!");
         }
-
-        gif.on("finished", function (blob) {
-          const url = URL.createObjectURL(blob);
-          const link = document.createElement("a");
-          link.href = url;
-          link.download = "thiep-chuc-mung.gif";
-          document.body.appendChild(link);
-          link.click();
-          document.body.removeChild(link);
-        });
-
-        gif.render();
       };
 
-      // Allow Enter key to unlock (handled by form submit)
-      // Autofocus password input
+      document.getElementById("shareBtn").onclick = async function () {
+        try {
+          const url = window.location.href;
+          await navigator.clipboard.writeText(url);
+          const btn = document.getElementById("shareBtn");
+          const original = btn.textContent;
+          btn.textContent = "✅";
+          setTimeout(() => {
+            btn.textContent = original;
+          }, 1500);
+          alert("📎 Đã sao chép link! Bạn có thể chia sẻ ngay.");
+        } catch (err) {
+          alert("Không thể sao chép liên kết. Trình duyệt không hỗ trợ!");
+        }
+      };
+
+      // Auto-focus password input
       window.onload = function () {
         document.getElementById("passInput").focus();
       };
