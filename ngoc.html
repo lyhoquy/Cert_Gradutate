@@ -29,6 +29,8 @@
         padding: 20px;
         position: relative;
         overflow-x: hidden;
+        max-width: 1600px; /* Add this line for a wider body */
+        margin: 0 auto; /* Center the content */
       }
 
       /* Password overlay */
@@ -53,6 +55,8 @@
         box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
         text-align: center;
         border: 2px solid #e9ecef;
+        max-width: 90vw;
+        width: 350px;
       }
 
       .password-box h2 {
@@ -63,7 +67,7 @@
 
       .password-box input {
         padding: 15px;
-        width: 300px;
+        width: 100%;
         margin: 15px 0;
         border-radius: 12px;
         border: 2px solid #ddd;
@@ -98,7 +102,7 @@
       .graduation-card {
         display: flex;
         width: 90%;
-        max-width: 1200px;
+        max-width: 1400px; /* Increase from 1200px to 1400px or more */
         height: 90%;
         border-radius: 25px;
         overflow: hidden;
@@ -412,11 +416,42 @@
           font-size: 1.4rem;
         }
       }
+
+      @media (max-width: 480px) {
+        .password-box {
+          padding: 20px;
+        }
+        .photo-section {
+          height: 180px;
+        }
+        .photo-container {
+          width: 120px;
+          height: 150px;
+        }
+        .letter-section {
+          padding: 15px 8px;
+        }
+      }
+
+      /* Accessibility: visually hidden label */
+      .visually-hidden {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        border: 0;
+      }
     </style>
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gif.js.optimized/dist/gif.worker.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gif.js.optimized/dist/gif.js"></script>
   </head>
   <body>
     <!-- Floating confetti -->
-    <div class="floating-confetti">
+    <div class="floating-confetti" aria-hidden="true">
       <div
         class="confetti"
         style="left: 10%; animation-delay: 0s; background: #fd79a8"
@@ -444,21 +479,39 @@
     </div>
 
     <!-- Password Screen -->
-    <div id="overlay" class="password-overlay">
-      <div class="password-box">
-        <h2>🔐 Nhập mật khẩu để mở thiệp chúc mừng</h2>
-        <input type="password" id="passInput" placeholder="Nhập mật khẩu..." />
+    <div
+      id="overlay"
+      class="password-overlay"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="password-title"
+    >
+      <form
+        class="password-box"
+        onsubmit="unlock(); return false;"
+        autocomplete="off"
+      >
+        <h2 id="password-title">🔐 Nhập mật khẩu để mở thiệp chúc mừng</h2>
+        <label for="passInput" class="visually-hidden">Mật khẩu</label>
+        <input
+          type="password"
+          id="passInput"
+          placeholder="Nhập mật khẩu..."
+          autocomplete="off"
+          required
+          aria-required="true"
+        />
         <br />
-        <button onclick="unlock()">✨ Mở thiệp ✨</button>
-      </div>
+        <button type="submit">✨ Mở thiệp ✨</button>
+      </form>
     </div>
 
     <!-- Main Content -->
-    <div id="content" style="display: none">
-      <div class="graduation-card">
+    <main id="content" style="display: none" tabindex="-1">
+      <section class="graduation-card" aria-label="Thiệp chúc mừng tốt nghiệp">
         <!-- Left side - Photo -->
         <div class="photo-section">
-          <div class="decorative-elements">
+          <div class="decorative-elements" aria-hidden="true">
             <div
               class="star-left"
               style="top: 15%; left: 10%; animation-delay: 0s"
@@ -484,50 +537,48 @@
               🌟
             </div>
           </div>
-
-          <div class="graduation-cap-left">🎓</div>
-
+          <div class="graduation-cap-left" aria-hidden="true">🎓</div>
           <div class="photo-container">
             <img
               src="./z5303291901899_474b3911f472857754cdf4972940ba0a.jpg"
-              alt="Ảnh tốt nghiệp Nguyễn Minh Thư"
+              alt="Ảnh tốt nghiệp của Nguyễn Minh Thư"
             />
           </div>
         </div>
 
         <!-- Right side - Letter -->
-        <div class="letter-section">
-          <div class="letter-header">
+        <section class="letter-section">
+          <header class="letter-header">
             <h1 class="main-title">🎉 Chúc Mừng Tốt Nghiệp 🎉</h1>
             <div class="graduate-name">Nguyễn Minh Thư</div>
-          </div>
-
-          <div class="letter-content">
-            <div class="achievement-badge">🌸 Thành Tựu Rực Rỗ Mùa Xuân 🌸</div>
-
+          </header>
+          <article class="letter-content">
+            <div class="achievement-badge">🌸 Thành Tựu Rực Rỡ Mùa Xuân 🌸</div>
             <div class="congratulation-message">
               <strong>💐 Thân gửi em yêu,</strong><br /><br />
-
               Chúc mừng em đã hoàn thành xuất sắc chặng đường học tập! Mỗi bước
               chân em đi qua đều là minh chứng cho sự kiên trì và nỗ lực không
               ngừng nghỉ.<br /><br />
-
               <strong>🌈 Hãy tự hào về bản thân</strong> - em đã vượt qua mọi
               thử thách và giờ đây đã sẵn sàng bay cao trên đôi cánh ước mơ của
               chính mình.<br /><br />
-
               <strong>🚀 Chúc em luôn tỏa sáng</strong> và chinh phục mọi đỉnh
               cao trong tương lai!
             </div>
-
-            <div class="signature">
+            <footer class="signature">
               💌 Gửi với trọn tình yêu thương,<br />
               <strong>[Tên người gửi]</strong> ✨
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+            </footer>
+          </article>
+          <button
+            id="downloadGifBtn"
+            style="margin-top: 20px; align-self: flex-end"
+          >
+            📥 Download GIF
+          </button>
+        </section>
+      </section>
+    </main>
 
     <script>
       function unlock() {
@@ -535,8 +586,7 @@
         if (input === "thu2025") {
           document.getElementById("overlay").style.display = "none";
           document.getElementById("content").style.display = "block";
-
-          // Create continuous confetti effect
+          document.getElementById("content").focus();
           createContinuousConfetti();
         } else {
           alert("🔐 Sai mật khẩu rồi! Hãy thử lại nhé 💡");
@@ -553,7 +603,6 @@
           "#ff7675",
           "#55efc4",
         ];
-
         setInterval(() => {
           const confetti = document.createElement("div");
           confetti.className = "confetti";
@@ -564,26 +613,55 @@
             colors[Math.floor(Math.random() * colors.length)];
           confetti.style.pointerEvents = "none";
           confetti.style.zIndex = "10";
-          confetti.style.animationDuration = Math.random() * 3 + 2 + "s";
-
+          confetti.style.animationDuration = Math.random() * 2 + 2 + "s";
           document.body.appendChild(confetti);
-
           setTimeout(() => {
             if (confetti.parentNode) {
               confetti.parentNode.removeChild(confetti);
             }
-          }, 5000);
-        }, 200);
+          }, 4000);
+        }, 250);
       }
 
-      // Allow Enter key to unlock
-      document
-        .getElementById("passInput")
-        .addEventListener("keypress", function (e) {
-          if (e.key === "Enter") {
-            unlock();
-          }
+      document.getElementById("downloadGifBtn").onclick = async function () {
+        const card = document.querySelector(".graduation-card");
+        const gif = new GIF({
+          workers: 2,
+          quality: 10,
+          width: card.offsetWidth,
+          height: card.offsetHeight,
+          workerScript:
+            "https://cdn.jsdelivr.net/npm/gif.js.optimized/dist/gif.worker.js", // 👈 dòng cần thêm
         });
+
+        for (let i = 0; i < 10; i++) {
+          await new Promise((r) => setTimeout(r, 200));
+          await html2canvas(card, {
+            backgroundColor: null,
+            useCORS: true, // 👈 dòng cần thêm
+          }).then((canvas) => {
+            gif.addFrame(canvas, { delay: 200 });
+          });
+        }
+
+        gif.on("finished", function (blob) {
+          const url = URL.createObjectURL(blob);
+          const link = document.createElement("a");
+          link.href = url;
+          link.download = "thiep-chuc-mung.gif";
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+        });
+
+        gif.render();
+      };
+
+      // Allow Enter key to unlock (handled by form submit)
+      // Autofocus password input
+      window.onload = function () {
+        document.getElementById("passInput").focus();
+      };
     </script>
   </body>
 </html>
